@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @comments = FetchNewApprovedComments.build.call
   end
 
   def new
