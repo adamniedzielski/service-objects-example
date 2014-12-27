@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    success, @comment = CreateComment.build.call(comment_params)
 
-    if @comment.save
+    if success
       redirect_to comments_url, notice: 'Comment was successfully created.'
     else
       render :new
